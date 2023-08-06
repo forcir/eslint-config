@@ -1,0 +1,21 @@
+{
+    "name": "@forcir/eslint-config",
+    "description": "Shared configuration for a consistent experience using JavaScript.",
+    "version": "0.0.0",
+    "private": false,
+    "license": "MIT",
+    "type": "commonjs",
+    "main": "./index.js",
+    "files": [
+        "*.js"
+    ],
+    "scripts": {
+        "format": "prettier --check \"**/*.{js,json,md,ts,tsx}\"",
+        "format:fix": "prettier --write \"**/*.{js,json,md,ts,tsx}\""
+    },
+    "devDependencies": {
+        "@forcir/prettier-config": "1.0.0",
+        "prettier": "3.0.0"
+    },
+    "packageManager": "pnpm@8.6.11"
+}
