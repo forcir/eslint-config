@@ -23,6 +23,15 @@ yarn add -DE eslint @forcir/eslint-config
 npm install -DE eslint @forcir/eslint-config
 ```
 
+## Peer Dependencies
+
+```bash
+pnpm add -DE eslint-plugin-unicorn \
+             eslint-plugin-import \
+             eslint-config-prettier \
+             @typescript-eslint/eslint-plugin
+```
+
 ## Basic Usage
 
 ### package.json

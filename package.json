@@ -1,8 +1,8 @@
 {
     "name": "@forcir/eslint-config",
-    "description": "Shared configuration for a consistent experience using JavaScript.",
     "version": "0.0.0",
     "private": false,
+    "description": "Shared configuration for a consistent experience using JavaScript.",
     "license": "MIT",
     "type": "commonjs",
     "main": "./index.js",
@@ -11,11 +11,30 @@
     ],
     "scripts": {
         "format": "prettier --check \"**/*.{js,json,md,ts,tsx}\"",
-        "format:fix": "prettier --write \"**/*.{js,json,md,ts,tsx}\""
+        "format:fix": "prettier --write \"**/*.{js,json,md,ts,tsx}\"",
+        "lint": "eslint \"**/*.{ts,tsx,js}\""
+    },
+    "prettier": "@forcir/prettier-config",
+    "eslintConfig": {
+        "extends": "./commonjs.js"
+    },
+    "dependencies": {
+        "@typescript-eslint/eslint-plugin": "6.2.1",
+        "eslint-config-prettier": "9.0.0",
+        "eslint-plugin-import": "2.28.0",
+        "eslint-plugin-unicorn": "48.0.1"
     },
     "devDependencies": {
         "@forcir/prettier-config": "1.0.0",
         "prettier": "3.0.0"
+    },
+    "peerDependencies": {
+        "eslint": "latest"
+    },
+    "peerDependenciesMeta": {
+        "eslint": {
+            "optional": false
+        }
     },
     "packageManager": "pnpm@8.6.11"
 }
