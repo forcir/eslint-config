@@ -14,6 +14,9 @@ module.exports = {
     plugins: ["import", "unicorn"],
 
     rules: {
+        "import/exports-last": "error",
+        "import/group-exports": "error",
+        "import/newline-after-import": "error",
         "import/order": [
             "error",
             {
@@ -22,7 +25,6 @@ module.exports = {
                 alphabetize: { order: "asc", caseInsensitive: true },
             },
         ],
-        "import/newline-after-import": "error",
     },
 
     overrides: [
