@@ -37,6 +37,30 @@ module.exports = {
             },
         },
 
+        // Jest
+        {
+            files: ["**/tests/**/*", "**/__tests__/**/*"],
+            env: { jest: true },
+            rules: {
+                // "correctness" in tests is important but semantic differences get a pass here
+                "unicorn/new-for-builtins": "off",
+                // sometimes we need to explicitly test for those useless undefined cases
+                "unicorn/no-useless-undefined": "off",
+                // null can (and likely) will be returned from libs, or components
+                "unicorn/no-null": "off",
+            },
+        },
+
+        // JSX
+        {
+            files: ["**/*.jsx", "**/*.tsx"],
+            parserOptions: {
+                ecmaFeatures: {
+                    jsx: true,
+                },
+            },
+        },
+
         // TypeScript
         {
             files: ["**/*.ts", "**/*.tsx"],
@@ -55,20 +79,6 @@ module.exports = {
                 "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_+", varsIgnorePattern: "^_+" }],
                 // tsconfig is set to disable implicit any, so we will accept explicit `any` types.
                 "@typescript-eslint/no-explicit-any": "off",
-            },
-        },
-
-        // Jest
-        {
-            files: ["**/tests/**/*", "**/__tests__/**/*"],
-            env: { jest: true },
-            rules: {
-                // "correctness" in tests is important but semantic differences get a pass here
-                "unicorn/new-for-builtins": "off",
-                // sometimes we need to explicitly test for those useless undefined cases
-                "unicorn/no-useless-undefined": "off",
-                // null can (and likely) will be returned from libs, or components
-                "unicorn/no-null": "off",
             },
         },
     ],
