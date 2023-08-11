@@ -32,7 +32,13 @@ npm install -DE eslint @forcir/eslint-config
     // ...
     "eslintConfig": {
         "extends": "@forcir/eslint-config"
-    }
+    },
     // ...
+    "scripts" {
+        // ...
+        "lint": "eslint \"**/*.{cjs,cts,js,jsx,mjs,mts,ts,tsx}\"",
+        "lint:fix": "eslint --fix \"**/*.{cjs,cts,js,jsx,mjs,mts,ts,tsx}\""
+        // ...
+    }
 }
 ```
