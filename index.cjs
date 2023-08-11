@@ -1,28 +1,40 @@
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
-    extends: ["eslint:recommended", "prettier"],
-    plugins: ["import"],
-    env: { es6: true },
-    parserOptions: { sourceType: "module", ecmaVersion: 2022 },
+    extends: ["eslint:recommended", "prettier", "plugin:unicorn/recommended"],
+
+    env: {
+        es2024: true,
+    },
+
+    parserOptions: {
+        ecmaVersion: "latest",
+        sourceType: "module",
+    },
+
+    plugins: ["import", "unicorn"],
 
     rules: {
         "import/order": [
-            "warn",
+            "error",
             {
-                groups: [
-                    ["builtin", "external"],
-                    ["sibling", "parent"],
-                ],
+                pathGroups: [{ pattern: "node:**", group: "builtin" }],
                 "newlines-between": "always-and-inside-groups",
-                alphabetize: {
-                    order: "asc",
-                    caseInsensitive: true,
-                },
+                alphabetize: { order: "asc", caseInsensitive: true },
             },
         ],
-        "import/newline-after-import": "warn",
+        "import/newline-after-import": "error",
     },
+
     overrides: [
+        // CommonJS
+        {
+            files: ["**.cjs"],
+            env: { commonjs: true },
+            rules: {
+                "unicorn/prefer-module": "off",
+            },
+        },
+
         // TypeScript
         {
             files: ["**/*.ts", "**/*.tsx"],
@@ -48,6 +60,14 @@ module.exports = {
         {
             files: ["**/tests/**/*", "**/__tests__/**/*"],
             env: { jest: true },
+            rules: {
+                // "correctness" in tests is important but semantic differences get a pass here
+                "unicorn/new-for-builtins": "off",
+                // sometimes we need to explicitly test for those useless undefined cases
+                "unicorn/no-useless-undefined": "off",
+                // null can (and likely) will be returned from libs, or components
+                "unicorn/no-null": "off",
+            },
         },
     ],
 };
