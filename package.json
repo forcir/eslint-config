@@ -1,6 +1,6 @@
 {
     "name": "@forcir/eslint-config",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "private": false,
     "description": "Shared configuration for a consistent experience using JavaScript.",
     "license": "MIT",
@@ -30,7 +30,7 @@
         "prettier": "3.0.0"
     },
     "peerDependencies": {
-        "eslint": ">=8.46.0"
+        "eslint": ">=8.46"
     },
     "peerDependenciesMeta": {
         "eslint": {
