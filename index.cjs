@@ -20,9 +20,10 @@ module.exports = {
         "import/order": [
             "error",
             {
-                pathGroups: [{ pattern: "node:**", group: "builtin" }],
-                "newlines-between": "always-and-inside-groups",
                 alphabetize: { order: "asc", caseInsensitive: true },
+                groups: [["builtin", "external"], "internal", ["parent", "sibling"], "index", "object", "type"],
+                "newlines-between": "always",
+                pathGroups: [{ pattern: "node:**", group: "builtin" }],
             },
         ],
     },
