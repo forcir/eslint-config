@@ -1,6 +1,6 @@
 /** @type {import('eslint').Linter.Config} */
-export default {
-    extends: ["./index.js"],
+module.exports = {
+    extends: ["./index.cjs"],
 
     env: {
         commonjs: true,
